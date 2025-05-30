@@ -46,10 +46,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Enable CORS for frontend (React at http://localhost:3000)
 builder.Services.AddCors(options =>
 {
+    // options.AddPolicy("AllowFrontend", policy =>
+    //     policy.WithOrigins(
+    //         "http://localhost:3000",  // Development
+    //         "https://localhost:3000"  // Development with HTTPS
+    //     )
+    //     .AllowAnyHeader()
+    //     .AllowAnyMethod()
+    //     .AllowCredentials());
+
     options.AddPolicy("AllowFrontend", policy =>
         policy.WithOrigins(
-            "http://localhost:3000",  // Development
-            "https://localhost:3000"  // Development with HTTPS
+            "https://thankful-sky-00c007f00.6.azurestaticapps.net",  // Development
+            "https://thankful-sky-00c007f00.6.azurestaticapps.net"  // Development with HTTPS
         )
         .AllowAnyHeader()
         .AllowAnyMethod()
